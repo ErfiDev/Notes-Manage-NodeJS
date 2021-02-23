@@ -1,7 +1,7 @@
 ## What is this!
 
 <h1>
-    This is a Simple node js practice to learn command line and option
+    This is a Simple <b>node js</b> App with use <b>process argv</b> and <b>yargs</b> package and <b>file system</b>
 </h1>
 
 <ol>
@@ -18,6 +18,6 @@
 
     - title [require option in all commands]
     - body [just for adding a notes]
-    
+
 </li>
 </ol>
