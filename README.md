@@ -1,7 +1,7 @@
 ## What is this!
 
 <h1>
-    This is a Simple <b>node js</b> App with use <b>process argv</b> and <b>yargs</b> package and <b>file system</b>
+    This is a Simple node js App with use process argv and yargs package and file system
 </h1>
 
 <ol>

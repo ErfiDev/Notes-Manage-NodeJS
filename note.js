@@ -1,4 +1,5 @@
 const fs = require('fs');
+const chalk = require("chalk");
 
 //ADD to json file =>> Function
 const addNote = function(title , body)
@@ -44,9 +45,24 @@ const removeNote = (title)=>{
 }
 
 
+//Show all Notes 
+const showNotes = ()=>{
+    let notes = loadNote();
+
+    notes.forEach(item =>{
+        console.log(`
+            ${chalk.blue("title:")} ${chalk.green(item.title)}  
+            ${chalk.blue("body:")} ${chalk.gray(item.body)} 
+            `
+        );
+    });
+};
+
+
 
 module.exports = {
     add: addNote,
     load: loadNote,
-    remove: removeNote
+    remove: removeNote,
+    show: showNotes
 };
