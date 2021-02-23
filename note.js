@@ -36,11 +36,13 @@ const loadNote = function()
 
 //Remove intended note
 const removeNote = (title)=>{
-    const note = loadNote();
-    const filter = note.filter(item => item !== title);
-    
-    saveNotes(filter);
+    let note = loadNote();
+    const filter = note.filter(item => item.title !== title);
+    note = filter;
+
+    saveNotes(note);
 }
+
 
 
 module.exports = {
