@@ -12,4 +12,12 @@
     - Remove
     - Show
 </li>
+
+<li>
+    Commands Option: 
+
+    - title [require option in all commands]
+    - body [just for adding a notes]
+    
+</li>
 </ol>
