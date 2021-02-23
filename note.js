@@ -12,6 +12,8 @@ const addNote = function(title , body)
     });
 
     saveNotes(init);
+
+    console.log(chalk.green("Note added!"));
 }
 
 
@@ -39,8 +41,15 @@ const loadNote = function()
 const removeNote = (title)=>{
     let note = loadNote();
     const filter = note.filter(item => item.title !== title);
-    note = filter;
+    
+    if(note.length > filter.length) {
+        console.log(chalk.green("Note Delete Sucessful!"));
+    }else{
+        console.log(chalk.red("Not a found this title in notes!"));
+    }
 
+    note = filter;
+    
     saveNotes(note);
 }
 
