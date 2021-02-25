@@ -7,15 +7,29 @@ const {isEmpty} = lodash;
 const addNote = (title , body)=>
 {
     const init = loadNote();
-    
-    init.push({
-        title,
-        body
-    });
-
-    saveNotes(init);
-
-    console.log(chalk.green("Note added!"));
+    if(isEmpty(init))
+    {
+        init.push({
+            title,
+            body
+        });
+        saveNotes(init);
+        console.log(chalk.green("Note added!"));
+    }else{
+        const duplicate = [...init];
+        const filter = duplicate.filter(item => item.title === title);
+        if(filter.length > 0)
+        {
+            console.log(chalk.red.inverse("this note saved before"))
+        }else{
+            init.push({
+                title,
+                body
+            });
+            saveNotes(init);
+            console.log(chalk.green("Note added!"));
+        }
+    }
 }
 
 
@@ -74,10 +88,20 @@ const showNotes = ()=>{
 };
 
 
+const readNote = (title)=>{
+    const receiveNote = loadNote();
+
+    const filter = receiveNote.filter(item => item.title === title);
+
+    console.log(filter);
+};
+
+
 
 module.exports = {
     add: addNote,
     load: loadNote,
     remove: removeNote,
-    show: showNotes
+    show: showNotes,
+    read: readNote
 };

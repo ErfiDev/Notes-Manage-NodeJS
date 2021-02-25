@@ -11,6 +11,10 @@
     - Add 
     - Remove
     - Show
+    - Read
+
+    --help
+    --version
 </li>
 
 <li>
