@@ -92,8 +92,10 @@ const readNote = (title)=>{
     const receiveNote = loadNote();
 
     const filter = receiveNote.filter(item => item.title === title);
+    const once = filter[0];
 
-    console.log(filter);
+    console.log(chalk.green(`title: ${once.title}`));
+    console.log(chalk.yellowBright(`title: ${once.body}`));
 };
 
 
