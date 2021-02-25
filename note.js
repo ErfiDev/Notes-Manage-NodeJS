@@ -1,8 +1,10 @@
 const fs = require('fs');
 const chalk = require("chalk");
+const lodash = require("lodash");
+const {isEmpty} = lodash;
 
 //ADD to json file =>> Function
-const addNote = function(title , body)
+const addNote = (title , body)=>
 {
     const init = loadNote();
     
@@ -24,7 +26,7 @@ const saveNotes = (notes)=>{
 }
 
 //Preparation for operation (JSON-File)
-const loadNote = function()
+const loadNote = ()=>
 {
     try{
         const dataBuffer = fs.readFileSync("note.json");
@@ -58,13 +60,17 @@ const removeNote = (title)=>{
 const showNotes = ()=>{
     let notes = loadNote();
 
-    notes.forEach(item =>{
-        console.log(`
-            ${chalk.blue("title:")} ${chalk.green(item.title)}  
-            ${chalk.blue("body:")} ${chalk.gray(item.body)} 
-            `
-        );
-    });
+    if(isEmpty(notes)) {
+        console.log(chalk.red.inverse("Empty Notes!"));
+    }else{
+        notes.forEach(item =>{
+            console.log(`
+                ${chalk.blue("title:")} ${chalk.green(item.title)}  
+                ${chalk.blue("body:")} ${chalk.gray(item.body)} 
+                `
+            );
+        });
+    }
 };
 
 

@@ -1,5 +1,4 @@
 const yargs = require("yargs");
-const fs = require("fs");
 const note = require("./note");
 
 
