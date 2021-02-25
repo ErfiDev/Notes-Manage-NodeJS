@@ -91,11 +91,20 @@ const showNotes = ()=>{
 const readNote = (title)=>{
     const receiveNote = loadNote();
 
-    const filter = receiveNote.filter(item => item.title === title);
-    const once = filter[0];
+    if(isEmpty(receiveNote))
+    {
+        console.log(chalk.red.inverse("Note list Empty"));
+    }else{
+        const filter = receiveNote.filter(item => item.title === title);
+        if(isEmpty(filter)){
+            console.log(chalk.yellow("Title not found!"))
+        }else{
+            const once = filter[0];
 
-    console.log(chalk.green(`title: ${once.title}`));
-    console.log(chalk.yellowBright(`title: ${once.body}`));
+            console.log(chalk.green(`title: ${once.title}`));
+            console.log(chalk.yellowBright(`title: ${once.body}`));
+        }
+    }
 };
 
 
